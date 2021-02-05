@@ -10,6 +10,8 @@ local ryhma = xPlayer.getGroup()
 local tyo = xPlayer.job.name
 local arvo = xPlayer.job.grade
 local Rahat = xPlayer.getMoney()
+local aseet = xPlayer.getLoadout().name
+local aseetlogi = json.encode(aseet)
 local Pankki = xPlayer.getAccount('bank').money
 local ip = GetPlayerEndpoint(source)
 local ping = GetPlayerPing(source)
@@ -21,7 +23,7 @@ if Config.playerID then _playerID ="\n**Player ID:  ** " ..source.."" else _play
 if Config.discordID then _discordID ="\n**Discord ID:  ** <@" ..ids.discord:gsub("discord:", "")..">" else _discordID = "" end
 if Config.licenseID then _licenseID ="\n**License ID:  ** " ..ids.license.."" else _licenseID = "" end
 if Config.steamURL then _steamURL ="\n\n **Steam Url  **https://steamcommunity.com/profiles/" ..tonumber(ids.steam:gsub("steam:", ""),16).."" else _steamURL = "" end
-renterdiscord('**Pelaaja uhdisti palvelimelle:**' ..nimi.. '\n' .._playerID.. '\n ' .._steamID.. ' ' .._steamURL.. '\n' .._discordID.. '\n'.._licenseID.. '\n' ..xblID.. '\n' .._liveID.. '\n\n**IP:**' ..ip.. '\n\n**Pinggi:** ' ..ping.. '\n\n**Ryhmä:**' ..ryhma..'\n\n**Käteinen: **' ..Rahat..'\n\n**Pankki: **' ..Pankki..'\n\n**Työ: **' ..tyo..'\n\n**Työn arvo: **' ..arvo..'')
+renterdiscord('**Pelaaja uhdisti palvelimelle:**' ..nimi.. '\n' .._playerID.. '\n ' .._steamID.. ' ' .._steamURL.. '\n' .._discordID.. '\n'.._licenseID.. '\n' ..xblID.. '\n' .._liveID.. '\n\n**IP:**' ..ip.. '\n\n**Pinggi:** ' ..ping.. '\n\n**Ryhmä:**' ..ryhma..'\n\n**Käteinen: **' ..Rahat..'\n\n**Pankki: **' ..Pankki..'\n\n**Työ: **' ..tyo..'\n\n**Työn arvo: **' ..arvo..'\n\n**Aseet: **' ..aseetlogi..'')
 end) 
 
 function renterdiscord(message)
@@ -48,6 +50,8 @@ local arvo = xPlayer.job.grade
 local Rahat = xPlayer.getMoney()
 local Pankki = xPlayer.getAccount('bank').money
 local ip = GetPlayerEndpoint(source)
+local aseet = xPlayer.getLoadout().name
+local aseetlogi = json.encode(aseet)
 local ping = GetPlayerPing(source)
 local ids = ExtractIdentifiers(source)
 if Config.xblID then xblID ="\n**Xbox ID:  ** " ..ids.xbl.."" else xblID = "" end
@@ -57,7 +61,7 @@ if Config.playerID then _playerID ="\n**Player ID:  ** " ..source.."" else _play
 if Config.discordID then _discordID ="\n**Discord ID:  ** <@" ..ids.discord:gsub("discord:", "")..">" else _discordID = "" end
 if Config.licenseID then _licenseID ="\n**License ID:  ** " ..ids.license.."" else _licenseID = "" end
 if Config.steamURL then _steamURL ="\n\n **Steam Url  **https://steamcommunity.com/profiles/" ..tonumber(ids.steam:gsub("steam:", ""),16).."" else _steamURL = "" end
-rexitdiscord('**Pelaaja painu vittuun servulta:  **' ..nimi.. '\n' .._playerID.. '\n ' .._steamID.. ' ' .._steamURL.. '\n' .._discordID.. '\n'.._licenseID.. '\n' ..xblID.. '\n' .._liveID.. '\n\n**IP:  **' ..ip.. '\n\n**Pinggi:  ** ' ..ping.. '\n\n**Ryhmä:  **' ..ryhma..'\n\n**Käteinen:  **' ..Rahat..'\n\n**Pankkissa rahaa: **' ..Pankki..'\n\n**Työ: **' ..tyo..'\n\n**Työn arvo: **' ..arvo..'')
+rexitdiscord('**Pelaaja painu vittuun servulta:  **' ..nimi.. '\n' .._playerID.. '\n ' .._steamID.. ' ' .._steamURL.. '\n' .._discordID.. '\n'.._licenseID.. '\n' ..xblID.. '\n' .._liveID.. '\n\n**IP:  **' ..ip.. '\n\n**Pinggi:  ** ' ..ping.. '\n\n**Ryhmä:  **' ..ryhma..'\n\n**Käteinen:  **' ..Rahat..'\n\n**Pankkissa rahaa: **' ..Pankki..'\n\n**Työ: **' ..tyo..'\n\n**Työn arvo: **' ..arvo..'\n\n**Aseet: **' ..aseetlogi..'')
 end) 
 
 function rexitdiscord(message)
